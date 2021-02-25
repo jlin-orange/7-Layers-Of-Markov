@@ -4,27 +4,31 @@
 
 <head>
     <title> 7-Layer Dip Generator </title>
-    <LINK href="style.css" rel="stylesheet" type="text/css">
-    <h1 id='title'> 7-Layer Dip Generator </h1>
-    <!-- TODO: add a fun little dip favicon -->
+    <link rel="icon" type="image/jpg" href="dip_icon.png"/>
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+    
 </head>
 
 <body>
-    <button id='dip_btn' onclick='main()'>Make me a dip!</button>
+    <div id='container'>
+        <h1 id='title'> 7-Layer Dip Generator </h1>
+        
+        <button id='dip_btn' onclick='main()'>Make me a dip!</button>
 
-    <div id='dip_display'>
-        <div id='layer_container'>
+        <div id='dip_display'>
+            <!--Garnish layers-->
             <div id='layer_7'></div>
             <div id='layer_6'></div>
             <div id='layer_5'></div>
+
+            <!--Base layers-->
             <div id='layer_4'></div>
-        </div>
-        
-        <div id='garnish_container'>
             <div id='layer_3'></div>
             <div id='layer_2'></div>
             <div id='layer_1'></div>
         </div>
+
     </div>
 </body>
 
