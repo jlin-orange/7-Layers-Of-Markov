@@ -11,8 +11,7 @@
     background-color: bisque;
     padding: 1%;
     border-radius: 2%;
-    padding-top: 0;
-    
+    padding-top: 0;  
 }
 
 /* https://www.w3schools.com/css/css3_buttons.asp */
@@ -35,8 +34,4 @@
     background-color: orange;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-}
-
-#title {
-    text-align: center;
 }

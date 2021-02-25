@@ -1,4 +1,5 @@
-transition_matrix = {
+// Constants
+TRANSITION_MATRIX = {
     // Base Ingredients
     "RB": {"RB": 0.0, "SC": 0.35, "SS": 0.075, "GC": 0.075, "SM": 0.35, "HM": 0.075, "PY": 0.075}, 
     "SC": {"RB": 0.025, "SC": 0.0, "SS": 0.025, "GC": 0.65, "SM": 0.25, "HM": 0.025, "PY": 0.025},
@@ -21,44 +22,48 @@ transition_matrix = {
 NUM_BASE_INGREDIENTS = 4;
 NUM_GARNISHES = 3;
 
-function generate_dip(transition_probs, starter_base, starter_garnish) {
+STARTER_BASE = "RB";
+STARTER_GARNISH = "CH";
+
+// Wrapper function
+function main() {
+    generate_dip(TRANSITION_MATRIX, STARTER_BASE, STARTER_GARNISH);
+}
+
+function generate_dip(transition_probs, first_base, first_garnish) {
     // TODO: clear current dip images
     // clear_display();
 
-    dip_layers = [];
+    dip_arr = [];
 
-    prev_layer = starter_base // local var to store the previous layer of dip, also sets a default layer
-    // Add all base ingredients first
+    prev_layer = first_base // local var to store the previous layer of dip, also sets a default layer
+    // Generate base ingredients first
     for (i = 0; i < NUM_BASE_INGREDIENTS; i++) {
-        dip_layers.push(prev_layer);
+        dip_arr.push(prev_layer);
         prev_layer = get_ingredient(transition_probs, prev_layer);
-
     }
 
-    // Add all garnishes second 
-    prev_layer = starter_garnish;
+    // Generate garnishes second 
+    prev_layer = first_garnish;
     for (i = 0; i < NUM_GARNISHES; i++) {
-        dip_layers.push(prev_layer);
+        dip_arr.push(prev_layer);
         prev_layer = get_ingredient(transition_probs, prev_layer)
     }
 
-    display_dip(dip_layers);
-
-    // TODO: while !dip_queue.isEmpty(), insert photo onto the website!
-    // - have the photo of the dip ingredient be: "ingredient abbrev".jpg
+    display_dip(dip_arr);
 }
 
-// insert pictrues according to what's in the dip array
-function display_dip(layers) {
-    for (i = 0; i < layers.length; i++) {
-        // console.log(layers[i]); ** FOR DEBUGGING ** 
-        // depending on what index i is: insert photo in the corresponding DIV
-        var img = document.createElement("img");
-        img.src = `imgs/${layers[i]}.jpg`;
+// insert pictures according to what's in the dip array
+// depending on what index i is: insert photo in the corresponding DIV
+function display_dip(layer_arr) {
+    for (i = 0; i < layer_arr.length; i++) { 
+        var new_img = document.createElement("img");
+        new_img.src = `imgs/${layer_arr[i]}.jpg`;
 
-        var src = document.getElementById(`layer_${i+1}`);
-        if (src.childElementCount > 0) {src.removeChild(src.firstElementChild);}
-        src.appendChild(img);
+        var dip_layer = document.getElementById(`layer_${i+1}`);
+        
+        if (dip_layer.childElementCount > 0) {dip_layer.removeChild(dip_layer.firstElementChild);} // clears out old pictures!
+        dip_layer.appendChild(new_img);
     }
 }
 
@@ -83,7 +88,5 @@ function weighted_random(items, weights) {
     return items[i];
 }
 
-function main() {
-    generate_dip(transition_matrix, "RB", "CH");
-}
+
 
