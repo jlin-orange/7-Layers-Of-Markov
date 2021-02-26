@@ -1,3 +1,4 @@
+/*Some basic styling for the webpage to make things look nicer!*/
 #container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
@@ -14,7 +15,7 @@
     padding-top: 0;  
 }
 
-/* https://www.w3schools.com/css/css3_buttons.asp */
+/*Source: https://www.w3schools.com/css/css3_buttons.asp*/
 #dip_btn {
     margin-bottom: 2%;
     display: inline-block;
