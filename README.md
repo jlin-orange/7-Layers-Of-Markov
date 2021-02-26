@@ -1,6 +1,6 @@
 # 7-Layers-Of-Markov
- A simple webapp that generates and displays a 7-layer dip using Markov Chains!
-
+ A simple webapp that generates and displays a 7-layer dip using Markov Chains! <br>
+<img src="examples/pretty_normal.png" alt="example photo" width="500px" height="300px"><br>
 7-layer dips are randomly generated in two parts - their base ingredients + garnishes.
 
 |**Base ingredients**|**Garnishes**|
