@@ -25,7 +25,7 @@ You can view this project on your local through the VSCode Extension: [Live Serv
 2) Open the repo in VSCode
 3) Click on the "Go Live" button in the bottom-right corner of your client
 
-Alternatively, you can visit: http://7-layer-generator.rf.gd/
+Alternatively, you can visit: https://jlin-orange.github.io/7-Layers-Of-Markov/
 
 ## Personal Significance 
 I enjoy silly websites^, and I wanted to make something
